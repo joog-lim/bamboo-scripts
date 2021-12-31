@@ -1,4 +1,5 @@
 config.py
 posts.csv
+posts.sql
 
 __pycache_
