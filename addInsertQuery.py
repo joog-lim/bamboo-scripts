@@ -8,16 +8,19 @@ collect = db["posts"]
 
 datas = list(collect.find())
 
+def wrap_quot(arg1 : str):
+  return arg1.replace("'", "\\'")
+
 with open("./posts.sql", "w", newline="", encoding="utf-8-sig") as file_data:
     for i in datas:
         number = i["number"]
-        title = i["title"]
+        title = wrap_quot(i["title"])
         status = i["status"] if i["status"] != "DELETED" else "REPORTED"
-        content = i["content"]
-        tag = i["tag"]
+        content = wrap_quot(i["content"])
+        tag = wrap_quot(i["tag"])
         createdAt = i["createdAt"]
         try:
-          reason = i["reason"]
+          reason = wrap_quot(i["reason"])
         except(KeyError):
           reason = ""
 
