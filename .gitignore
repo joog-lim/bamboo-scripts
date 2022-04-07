@@ -2,4 +2,6 @@ config.py
 posts.csv
 posts.sql
 
-__pycache_
+# python
+__pycache__
+*.pyc
